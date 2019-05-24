@@ -14,38 +14,31 @@ import com.resources.Jeu;
 
 public class Jeu {
 	
-	private BufferedImage figures = loadImages();
-
 	public Jeu() throws IOException {}
+	private ImageIcon[] figures = loadImages();
+	public ImageIcon[] loadImages() throws IOException {
+		
+		ImageIcon[] bombe = { new ImageIcon("mine.png") };
+		ImageIcon[] vide = { new ImageIcon("vide.png")};
+		int i = 0;
+		int j = 0;
+		int cpt = 0;
+		ImageIcon[] tableau = {new ImageIcon()};
+		bombe[i].setDescription("bombe");
+		vide[j].setDescription("vide");
 	
-	public BufferedImage loadImages() throws IOException {
-		
-		BufferedImage bombe = Ressources.loadBufferedImage("mine.png");
-		BufferedImage vide = Ressources.loadBufferedImage("vide.png");
-		vide.setDescription("vide");
-		bombe.setDescription("bombe");
-		
-		return bombe;
-	}
-
-	public Deque<ImageIcon> creerPioche(){
-		LinkedList<ImageIcon> pioche = new LinkedList<>();
-		int row = 4;
-		int col = 3;
-		int x = 0;
-		int z = 0;
-		int k = 0;
-		for (k = 0; k <2; k++) {
-		for (x = 0; x < row; x++) {
-			for (z = 0; z < col; z++) {
-			pioche.add(figures[x][z]);
-			Collections.shuffle(pioche);
+		//for (int a = 0; a<bombe.length;a++) {
+			//for(int b= 0; b<vide.length;b++) {
+				//tableau[cpt]= bombe[a]+vide[b];
+				//System.out.println(tableau[cpt]+"|");
+				//cpt++;
+			//}
+		System.out.println(bombe);
+		System.out.println(vide);
+		return tableau;
+			
 		}
-		}
-		}
-System.out.println(pioche);
-		return pioche;
+	
 	}
 	
 	
-}
